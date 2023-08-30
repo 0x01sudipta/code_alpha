@@ -1,7 +1,7 @@
 <?php
 $insert = FALSE;
 
-if(isset($_POST['name'])){    
+if(isset($_POST['name'],$_POST['email'],$_POST['phone'],$_POST['comment'],$_POST['dt'])){    
 //initializing variables to connect the database
 $server = "localhost";
 $username = 'root';

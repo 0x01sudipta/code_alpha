@@ -1,7 +1,7 @@
 <?php
 $insert = FALSE;
 
-if(isset($_POST['name'])){
+if(isset($_POST['name'],$_POST['email'],$_POST['phone'],$_POST['comment'],$_POST['dt'])){
     
 //initializing variables to connect the database
 $server = "localhost";
@@ -20,9 +20,9 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 $comment = $_POST['comment'];
-//$g_recaptcha = $_POST['g-recaptcha-response'];
+$g_recaptcha = $_POST['g-recaptcha-response'];
 //inserting values into database
-//if($g_recaptcha == true) {
+if($g_recaptcha == true) {
 $sql = "INSERT INTO `makaut`.`makaut` (`name`, `email`, `phone`, `comment`, `dt`) VALUES ('$name', '$email', '$phone', '$comment', current_timestamp());";
 
 //echo $sql;
@@ -41,7 +41,7 @@ else{
 $connection->close();
 
 }
-
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -119,4 +119,3 @@ function validation() {
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </html>
-
